@@ -28,7 +28,7 @@ typedef struct registro{
     #include <unistd.h>
 #endif
 
-//variáveis globais =============================================================================================
+//variÃ¡veis globais =============================================================================================
 
 char tabuleiro[3][3];
 
@@ -62,7 +62,7 @@ int anima_moeda(char cara_coroa);
 //main ==========================================================================================================
 
 int main(){
-	int novo_jogo, rodada=0, opcao, voltar, primeiro, escolha, quant_jogadores=0, k; // variáveis da main
+	int novo_jogo, rodada=0, opcao, voltar, primeiro, escolha, quant_jogadores=0, k; // variÃ¡veis da main
 	char nome_temp[20], cara_coroa;
 	Registro jogador, temp, temporario;
 	
@@ -71,7 +71,7 @@ int main(){
 	srand(time(NULL));
 
     //recebe nome do jogador
-    printf("===== Bem-Vindo ao Jogo da Velha Invencível =====");
+    printf("===== Bem-Vindo ao Jogo da Velha InvencÃ­vel =====");
     printf("\n\n>>>>> Insira seu nome: ");
     setbuf(stdin, NULL);
     scanf("%[^\n]s", nome_temp);
@@ -97,7 +97,7 @@ int main(){
 	if(!flag){ 
 		strcpy(jogador.nome, nome_temp);
 		jogador.vit = jogador.der = 0;
-		printf("Parece que e a sua primeira vez aqui! Esperamos que se divirta\n A aventura começará em... ");
+		printf("Parece que e a sua primeira vez aqui! Esperamos que se divirta\n A aventura comeÃ§arÃ¡ em... ");
 		int i;
 		for(i=5; i>1; i--){
 			printf("%d, ", i);
@@ -109,11 +109,11 @@ int main(){
     
     system("cls"); // limpa o terminal
 
-   	printf(" ====== Olá, %s =====", jogador.nome);
-   	printf("\n\nInstruções - Para jogar, escolha entre as opções apresentadas digitando o número correspondente, em seguida aperte a tecla enter!");
-   	printf(ANSI_COLOR_GREEN "\n>>>>>> Você é X" );
+   	printf(" ====== OlÃ¡, %s =====", jogador.nome);
+   	printf("\n\nInstruÃ§Ãµes - Para jogar, escolha entre as opÃ§Ãµes apresentadas digitando o nÃºmero correspondente, em seguida aperte a tecla enter!");
+   	printf(ANSI_COLOR_GREEN "\n>>>>>> VocÃª Ã© X" );
 	printf(ANSI_COLOR_RESET);
-   	printf("\n\nAguarde, o jogo iniciará em breve ;)");
+   	printf("\n\nAguarde, o jogo iniciarÃ¡ em breve ;)");
    	my_sleep(5000);
     
     do{
@@ -131,7 +131,7 @@ int main(){
 	    printf("\n                  3 - Sobre");
 	    printf("\n                  0 - Sair\n");
 	
-	    printf("\nEscolha uma opção: ");
+	    printf("\nEscolha uma opÃ§Ã£o: ");
 	    setbuf(stdin, NULL);
 	    scanf("%d", &opcao);
 		
@@ -142,7 +142,7 @@ int main(){
 				system("cls"); // limpa o terminal
 				
 				do{
-			    	printf("Para decidir quem começa, vamos rodar uma moeda. \nEscolha: cara ou coroa? (digite 1 para Cara 2 para Coroa): ");
+			    	printf("Para decidir quem comeÃ§a, vamos rodar uma moeda. \nEscolha: cara ou coroa? (digite 1 para Cara 2 para Coroa): ");
 			    	scanf(" %c", &cara_coroa);
 			    	
 			    	primeiro = anima_moeda(cara_coroa);
@@ -155,7 +155,7 @@ int main(){
 			    	
 			    	if(!primeiro){
 			    		system("cls");
-			    		printf("\nEscolha inválida. Escolha novamente!");
+			    		printf("\nEscolha invÃ¡lida. Escolha novamente!");
 					}
 					
 				}while(!primeiro);
@@ -199,13 +199,13 @@ int main(){
 				switch (verifica_vitoria(rodada)){
 					case 1: //vitoria da IA
 						system("color 05");
-						printf("\n\n            Vitória do computador!\n");
+						printf("\n\n            VitÃ³ria do computador!\n");
 						jogador.der++;
 						break;
 						
 					case 2: //vitoria do Jogador
 						system("color 02");
-						printf("\n\n            Vitória do jogador!\n");
+						printf("\n\n            VitÃ³ria do jogador!\n");
 						jogador.vit++;
 						break;
 						
@@ -220,13 +220,13 @@ int main(){
 				// FIM DA PARTIDA
 				printf("\nDeseja jogar novamente?\n");
 				printf("1 - Sim\n");
-				printf("0 - Não\n");
+				printf("0 - NÃ£o\n");
 				scanf("%d", &novo_jogo);
 				system("color 07");
 				
 			}while(novo_jogo);
 			
-			//atualização do arquivo histórico
+			//atualizaÃ§Ã£o do arquivo histÃ³rico
 		
 			rewind(f_hist);
 			
@@ -263,7 +263,7 @@ int main(){
 			imprimir_ranking(ranking, k);
 			my_sleep(2000);
 			
-			printf("\n\nDigite qualquer número inteiro para voltar ao menu: ");
+			printf("\n\nDigite qualquer nÃºmero inteiro para voltar ao menu: ");
 	        scanf("%d", &voltar);
 	        system("cls"); // limpa o terminal
 	        break;
@@ -271,16 +271,16 @@ int main(){
 	    //Sobre
 	    case 3:
 	        system("cls"); // limpa o terminal
-	        printf("===== Informações do Jogo =====");
-	        printf("\n\nNome: Jogo da Velha Invencível");
-	        printf("\nVersão: 1.0");
+	        printf("===== InformaÃ§Ãµes do Jogo =====");
+	        printf("\n\nNome: Jogo da Velha InvencÃ­vel");
+	        printf("\nVersÃ£o: 1.0");
 	        printf("\nCriadores: Ana Laura Neuber de Castro Carvalho");
 	        printf("\n           Bianca Mitie Menezes de Azeredo\n");
-	        printf("\nObjetivo: Este jogo foi criado com o objetivo de cumprir, da melhor forma possível, o Trabalho de Conclusão de Disciplina de\nProgramação Procendimental.Foi solicitado pelos Prof. Me. Claudiney R. Tinoco e Prof. Dra Amanda C. Davi Resende.\n");
+	        printf("\nObjetivo: Este jogo foi criado com o objetivo de cumprir, da melhor forma possÃ­vel, o Trabalho de ConclusÃ£o de Disciplina de\nProgramaÃ§Ã£o Procendimental.Foi solicitado pelos Prof. Me. Claudiney R. Tinoco e Prof. Dra Amanda C. Davi Resende.\n");
 	        printf("\n===== Sobre o jogo da velha =====");
-	        printf("\n O jogo da velha ou jogo do galo ou três em linha é um jogo e/ou passatempo popular. É um jogo de regras extremamente simples, que não traz grandes dificuldades para seus jogadores e é facilmente aprendido. A origem é desconhecida, com indicações de que pode ter começado no antigo Egito. O objetivo do jogo da velha é fazer uma sequência de três símbolos iguais, seja em linha vertical, horizontal ou diagonal, enquanto tenta impedir que seu adversário faça o mesmo. Quando um dos participantes faz uma linha, ganha o jogo.\n");
+	        printf("\n O jogo da velha ou jogo do galo ou trÃªs em linha Ã© um jogo e/ou passatempo popular. Ã‰ um jogo de regras extremamente simples, que nÃ£o traz grandes dificuldades para seus jogadores e Ã© facilmente aprendido. A origem Ã© desconhecida, com indicaÃ§Ãµes de que pode ter comeÃ§ado no antigo Egito. O objetivo do jogo da velha Ã© fazer uma sequÃªncia de trÃªs sÃ­mbolos iguais, seja em linha vertical, horizontal ou diagonal, enquanto tenta impedir que seu adversÃ¡rio faÃ§a o mesmo. Quando um dos participantes faz uma linha, ganha o jogo.\n");
 	
-	        printf("\n\nDigite qualquer número inteiro para voltar ao menu: ");
+	        printf("\n\nDigite qualquer nÃºmero inteiro para voltar ao menu: ");
 	        scanf("%d", &voltar);
 	        system("cls"); // limpa o terminal
 	        break;
@@ -293,7 +293,7 @@ int main(){
 	        
 	    //Erro
 	    default:
-	        printf("\nOpção inválida, escolha novamente!\n");
+	        printf("\nOpÃ§Ã£o invÃ¡lida, escolha novamente!\n");
 	    	my_sleep(5000);
 	        system("cls"); // limpa o terminal
 	        break;
@@ -464,7 +464,7 @@ int BOT(int rodada){
 		}
 	}
 	
-	//jogada dicionário 
+	//jogada dicionÃ¡rio 
 	
 	if(rodada<=4){
 		int mod_i, mod_j, *p_i, *p_j;
@@ -702,10 +702,10 @@ int anima_moeda(char cara_coroa){
 	}
 	
 	if(funcao==1){
-		printf("\n                  Você começa!", funcao, resultado);
+		printf("\n                  VocÃª comeÃ§a!", funcao, resultado);
 	}
 	else{
-		printf("\n                  O computador começa!", funcao, resultado);
+		printf("\n                  O computador comeÃ§a!", funcao, resultado);
 	}
 
 	return funcao;
@@ -734,12 +734,12 @@ void imprimir_ranking(Registro ranking[], int tamanho){
 	int l, tamanho_nome, aux;
 	system("cls");
 	printf("\n          ===== RANKING =====");
-	printf("\n * |        NOME        | Vitórias | Derrotas |\n");
+	printf("\n * |        NOME        | VitÃ³rias | Derrotas |\n");
 	
 	for(l=0; l < tamanho; l++){
 		tamanho_nome = 20 - strlen(ranking[l].nome);
 		tamanho_nome /= 2;
-		printf("%dº |", l+1);
+		printf("%dÂº |", l+1);
 		for(aux = 0; aux<tamanho_nome; aux++){
 			printf(" ");
 		}
